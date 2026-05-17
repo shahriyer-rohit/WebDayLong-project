@@ -77,7 +77,7 @@ $weekdays = ['Monday','Tuesday','Wednesday','Thursday','Friday'];
       <div class="alert alert-error"><span class="alert-icon">⚠️</span>Please fix the errors below.</div>
     <?php endif; ?>
 
-    <form method="POST" action="<?= BASE_URL ?>/index.php?page=admin/doctors" enctype="multipart/form-data" novalidate>
+    <form id="add-doctor-form" method="POST" action="<?= BASE_URL ?>/index.php?page=admin/doctors" enctype="multipart/form-data" novalidate>
       <div class="form-row form-row-2">
         <div class="form-group">
           <label class="form-label">Full Name</label>
@@ -149,5 +149,8 @@ $weekdays = ['Monday','Tuesday','Wednesday','Thursday','Friday'];
 <?php if (!empty($errors)): ?>
 <script>document.getElementById('add-doctor-modal').classList.add('open');</script>
 <?php endif; ?>
+
+<!-- Load AJAX module script for Add Doctor (falls back to normal submit if JS disabled) -->
+<script src="<?= BASE_URL ?>/ajax_module/js/add_doctor.js"></script>
 
 <?php require BASE_PATH . '/views/layouts/footer.php'; ?>
